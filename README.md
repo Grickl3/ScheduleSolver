@@ -29,6 +29,7 @@ The Schedule Solver sequence is as follows:
 - allow user to determine schedule start
 
 ### Employee Creation
+Enter the following:
 	- Name
 	- Start Date (used to determine seniority, _basis for schedule preference_ )
 	- Email (will be used when employee invites are a thing)
