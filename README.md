@@ -29,11 +29,11 @@ The Schedule Solver sequence is as follows:
 - allow user to determine schedule start
 
 ### Employee Creation
-	* Name
-	* Start Date (used to determine seniority, _basis for schedule preference_ )
-	* Email (will be used when employee invites are a thing)
-	* Weekly hours preference
-	* Which types of roles the employee may occupy (created in the schedule making process, _see schedule creation below_ )
+	- Name
+	- Start Date (used to determine seniority, _basis for schedule preference_ )
+	- Email (will be used when employee invites are a thing)
+	- Weekly hours preference
+	- Which types of roles the employee may occupy (created in the schedule making process, _see schedule creation below_ )
 
 ### Employee Availability
 	**Early Beta**
@@ -49,26 +49,21 @@ The Schedule Solver sequence is as follows:
 ### SOLVING!
 
 	The solving function can be entirely self contained only returning its solution. It involves the assignment of points based on seniority and the the spending of these points. These points need not persist beyond any particular round of solving and are not stored in memory on the persistent employee objects themselves. 
-
 	* assign points based on seniority
 		The early algorithm should be kept very simple. It will be Deacon's job to interact with a beta-test group of business owners and managers to get actual feedback on the efficacy of the solver. 
 
 		For now, let us simply give each employee one point for every day they've been employed. 
-
 	* rank employees by points
 		The function will need to maintain an array of employees which will be resorted after every assigned shift. We'll call it the sorting ledger.
-
 	* iterate through days beginning with user defined starting point or …
 		In this process, we will go from shift to shift, in sequence, assigning the shift, adjusting the sorting ledger, and moving on in direct chronological order.
 
 		_My hypothesis, and I do intend to get feedback on this point, is that in any given service business the busiest days are clustered. In a to-go focused coffee shop on a high morning traffic street the cluster will be centered on Tuesday's opening shift. In a restaurant/bar the center of the cluster will be Friday dinner/close. Since there are businesses in the later category, we should set the default starting point just before Friday dinner._ 
-
 	* begin iteration at last shift Fri.
 		I should further note that part of my hypothesis is that, while we could allow the user to hand rank the value of each shift, it does not serve for the following reasons:
 			* It would only have value to a small number of venues.
 			* Shift valuation is somewhat subjective, dependent on circumstances of the employees life.
 			* Shift valuation is handled in more fine grain detail by employee availability input.
-
 	* at first shift
 		* create array of employees who want shift (shift marked as preferred)
 		* assign shift to employee with most points
