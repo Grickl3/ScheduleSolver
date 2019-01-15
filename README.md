@@ -30,11 +30,11 @@ The Schedule Solver sequence is as follows:
 
 ### Employee Creation
 Enter the following:
-	- Name
-	- Start Date (used to determine seniority, _basis for schedule preference_ )
-	- Email (will be used when employee invites are a thing)
-	- Weekly hours preference
-	- Which types of roles the employee may occupy (created in the schedule making process, _see schedule creation below_ )
+- Name
+- Start Date (used to determine seniority, _basis for schedule preference_ )
+- Email (will be used when employee invites are a thing)
+- Weekly hours preference
+- Which types of roles the employee may occupy (created in the schedule making process, _see schedule creation below_ )
 
 ### Employee Availability
 	**Early Beta**
