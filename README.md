@@ -5,8 +5,9 @@ One evening, I found myself sitting in the DBC Beer Hall talking to Jessica, the
 I did look around at the various available applications in the problem space. It would seem that no one has taken on this problem with any real interest. I spoke with a few other business owners. They had looked too, except Massoud at Backstage. He enjoys the quiet puzzle solving ritual once a week. 
 
 ## How it Works
-**Beta Phase**
-For Beta, the Solver will only feature user management for managers/owners and not functionality for employees. At full release, functionality for employees to edit their own profiles and full message functionality should be included, but not at present. Right now, we just want single accounts with no relation to any others, capable of creating and storing schedules.
+**Early Beta**
+
+In early beta, the Solver will allow access to managers/owners with no interface for employees. In late beta, functionality for employees to edit their own profiles and for intra organizational messaging will be necessary. Right now, we just want single accounts with no relation to any others, capable of creating and storing schedules.
 
 
 The Schedule Solver sequence is as follows:
@@ -21,20 +22,25 @@ The Schedule Solver sequence is as follows:
 
 
 ### Schedule Creation
-**Weekly Schedules**
-- allow user to determine schedule start
+Manager will first be prompted to choose to create either a weekly repeating schedule or a schedule for a specific span up to 35 days.
 
-**Span Schedules**
-- allow owners to make some shifts more valuable than others
-- allow user to determine schedule start
+Then, the manager will be given the shift creation window. In the weekly view they will have a row of checkboxes that gives the option of applying the day plan in question to any number of the days of the week. In the span view they will be shown a dropdown calendar spanning their selected time, for the same purpose.
+
+Manager will be given a view of a day from 4am – 4am. The day will be pre-populated with three editable shift boxes: open, mid, close. Selecting a shift will bring its details into the editing area. The manager may select any box to edit its contents. They may change the name of the shift, change the job title names, adjust the number of employees of each title needed, determine the beginning and ending times of that shift, and add or remove shifts.
+
+From this view the manager may move forward to view their full schedule, move backward to the choice concerning weekly versus span schedule creation, or make another day template. 
+
+The manager will be able to determine the starting point of the iteration cycle. Shifts immediately following the starting point are seen as more valuable. 
+
+From the full week view the manager may move on to employee creation.
 
 ### Employee Creation
 Enter the following:
 - Name
-- Start Date (used to determine seniority, _basis for schedule preference_ )
+- Start Date (used to determine seniority, _basis for schedule preference_)
 - Email (will be used when employee invites are a thing)
 - Weekly hours preference
-- Which types of roles the employee may occupy (created in the schedule making process, _see schedule creation below_ )
+- Which types of roles the employee may occupy (created in the schedule making process)
 
 ### Employee Availability
 **Early Beta**
