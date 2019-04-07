@@ -1,18 +1,53 @@
 
 
 
-h1 {}
+h1 {
+    font-family: 'Overpass', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    
+}
 
-h2 {}
+h2 {
+    font-family: 'Overpass', sans-serif;
+    font-weight: 400;
+    font-size: 2.1rem;
 
-h3 {}
+}
 
-h4 {}
+h3 {font-family: 'Overpass', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-transform: uppercase;
 
-h5 {}
+}
 
-h6 {}
+h4 {
+    font-family: 'Overpass', sans-serif;
+    font-weight: 600i;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
 
-p {}
+h5 {
+    font-family: 'Overpass', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: -15px;
+}
+
+h6 {
+    font-family: 'Overpass', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Overpass', sans-serif;
+    font-weight: 400;
+    font-size: .8rem; 
+
+}
 
 .blockquote {}
