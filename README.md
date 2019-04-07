@@ -22,7 +22,7 @@ The Schedule Solver sequence is as follows:
 
 
 ### Schedule Creation
-Manager will first be prompted to choose to create either a weekly repeating schedule or a schedule for a specific span up to 35 days.
+Manager will first be prompted to create their general weekly schedule. Once their generalized schedule is in place, they will be able to edit the calendar to change specific days.
 
 Then, the manager will be given the shift creation window. In the weekly view they will have a row of checkboxes that gives the option of applying the day plan in question to any number of the days of the week. In the span view they will be shown a dropdown calendar spanning their selected time, for the same purpose.
 
@@ -55,26 +55,33 @@ Before we exit beta, we obviously want to incorporate employee login and schedul
 
 ### SOLVING!
 
-The solving function can be entirely self contained only returning its solution. It involves the assignment of points based on seniority and the the spending of these points. These points need not persist beyond any particular round of solving and are not stored in memory on the persistent employee objects themselves. 
+The basis of the solving function is the assignment of points based on seniority and the the spending of these points to "buy" shifts. Points are assigned at the beginning of the algorithm and do not persist on the worker object. 
 * assign points based on seniority
-	The early algorithm should be kept very simple. It will be Deacon's job to interact with a beta-test group of business owners and managers to get actual feedback on the efficacy of the solver. 
+	The early algorithm should be kept very simple. Through interaction with the beta-test group of business operators we will get feedback on the efficacy of the solver and determine whether additional variables are needed. 
 
 	For now, let us simply give each employee one point for every day they've been employed. 
 * rank employees by points
 	The function will need to maintain an array of employees which will be resorted after every assigned shift. We'll call it the sorting ledger.
-* iterate through days beginning with user defined starting point or …
-	In this process, we will go from shift to shift, in sequence, assigning the shift, adjusting the sorting ledger, and moving on in direct chronological order.
+* iterate through days beginning with user defined starting point or the default starting point of the first shift on Friday.
+	In this process, we will go from shift to shift, in sequence, assigning the shift, adjusting the sorting ledger, and moving on in chronological order of shifts.
 
-	_My hypothesis, and I do intend to get feedback on this point, is that in any given service business the busiest days are clustered. In a to-go focused coffee shop on a high morning traffic street the cluster will be centered on Tuesday's opening shift. In a restaurant/bar the center of the cluster will be Friday dinner/close. Since there are businesses in the later category, we should set the default starting point just before Friday dinner._ 
-* begin iteration at last shift Fri.
+	_My hypothesis, and I do intend to get feedback on this point, is that in any given service business the busiest days are clustered. In a to-go focused coffee shop the cluster will be centered on Tuesday's opening shift. In a restaurant/bar the center of the cluster will be Friday dinner/close. Since there are more businesses in the later category, we should set the default starting point to Friday morning._ 
+* begin iteration on Fri.
 	I should further note that part of my hypothesis is that, while we could allow the user to hand rank the value of each shift, it does not serve for the following reasons:
 		* It would only have value to a small number of venues.
 		* Shift valuation is somewhat subjective, dependent on circumstances of the employees life.
 		* Shift valuation is handled in more fine grain detail by employee availability input.
 * at first shift
-	* create array of employees who want shift (shift marked as preferred)
+	* sort the temporary array of employees by score
+	* ask if the top ranked employee prefers the shift
+	* if so, assign them the shift
+		* deduct from them 20 points
+		* resort the algorithm
+		* move on to the next shift in the stack
+	* if not
+		* move on to the next highest ranked employee
 	* assign shift to employee with most points
-	* deduct 5 points from employee
+	* deduct 20 points from employee
 	* if no employee wants shift, create array of available employees
 	* sort array according to desired hours
 	* assign shift to employee with highest desired hours
